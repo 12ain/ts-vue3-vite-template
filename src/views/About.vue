@@ -9,12 +9,15 @@
         {{ item }}
       </button>
       <div>当前选择{{ selected }}</div>
+      <button @click="finish">选择完成</button>
+      <div>{{ text }}</div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { toRefs, reactive } from "vue";
+import { toRefs, reactive, ref, watch } from "vue";
+
 interface DataType {
   options: string[];
   selected: string;
@@ -30,8 +33,16 @@ export default {
         data.selected = data.options[index];
       },
     });
-    const a = toRefs(data);
-    return { ...a };
+    // watch的使用
+    const text = ref("选项");
+    const finish = () => {
+      text.value = data.selected;
+    };
+    watch([text, () => data.select], (newVal, oldVal) => {
+      console.log(newVal, oldVal);
+      document.title = "选择内容|" + newVal[0];
+    });
+    return { ...toRefs(data), text, finish };
   },
 };
 </script>
