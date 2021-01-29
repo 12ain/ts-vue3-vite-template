@@ -1,7 +1,8 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/example">Example</router-link>
   </div>
   <router-view />
 </template>
@@ -26,5 +27,13 @@
       color: #42b983;
     }
   }
+}
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 0;
+  background-color: rgb(0, 201, 140);
+  color: #fff;
+  margin: 0 10px;
 }
 </style>
