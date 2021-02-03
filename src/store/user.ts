@@ -13,6 +13,9 @@ const state: User = {
 };
 
 const mutations = {
+  SET_NAME: (state: User, name: string): void => {
+    state.name = name;
+  },
   SET_TOKEN: (state: User, token: string): void => {
     state.token = token;
   },

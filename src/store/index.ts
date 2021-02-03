@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import user from "./user";
 
 interface Test {
   name: string;
@@ -14,5 +15,7 @@ export default createStore({
     },
   },
   actions: {},
-  modules: {},
+  modules: {
+    user,
+  },
 });
