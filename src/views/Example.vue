@@ -1,30 +1,27 @@
 <template>
   <div>
-    <a-count :initial="1"></a-count>
+    我是{{ name }}
+    <a-count :initial="counts"></a-count>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, reactive, onMounted } from "vue";
+import { ref, toRefs } from "vue";
 
 import ACount from "@/components/Count.vue";
 
 export default {
   setup() {
-    interface DataType {
+    interface Person {
       name: string;
       age?: number;
     }
-    const obj: DataType = {
+    const obj: Person = {
       name: "小明",
       age: 11,
     };
-    const counts = ref(10);
-    const data = reactive(obj);
-    onMounted(() => {
-      console.log(data);
-    });
-    return { counts };
+    const counts = ref(1);
+    return { counts, ...toRefs(obj) };
   },
   components: { ACount },
 };
