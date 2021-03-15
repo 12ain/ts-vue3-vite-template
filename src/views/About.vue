@@ -1,22 +1,22 @@
 <template>
   <div class="about">
     <div class="select">
-      <button
+      <van-button
         v-for="(item, index) in options"
         :key="index"
         @click="select(index)"
       >
         {{ item }}
-      </button>
+      </van-button>
       <div>当前选择{{ selected }}</div>
-      <button @click="finish">选择完成</button>
+      <van-button type="success" @click="finish">选择完成</van-button>
       <div>{{ text }}</div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { toRefs, reactive, ref, watch } from "vue";
+import { toRefs, reactive, ref, watch, defineComponent } from "vue";
 
 interface DataType {
   options: string[];
@@ -24,7 +24,7 @@ interface DataType {
   select: (index: number) => void;
 }
 
-export default {
+export default defineComponent({
   setup() {
     const data: DataType = reactive({
       options: ["first", "second", "third"],
@@ -44,5 +44,5 @@ export default {
     });
     return { ...toRefs(data), text, finish };
   },
-};
+});
 </script>
