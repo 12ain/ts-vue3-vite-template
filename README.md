@@ -18,12 +18,6 @@ yarn serve
 yarn build
 ```
 
-### Lints and fixes files
-
-```sh
-yarn lint
-```
-
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
@@ -41,6 +35,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 不常用
 
-- onActivated  包含在kepp-alive中
-- onDeactivated A组件切换B组件，A组件消失时执行
+- onActivated 包含在 kepp-alive 中
+- onDeactivated A 组件切换 B 组件，A 组件消失时执行
 - onErrorCaptured 捕获子组件异常
+
+#### vite 迁移指南
+
+第一步 将 public 文件夹下的 index.html 移动到根目录下并添加如下代码片段
+
+```html
+<script type="module" src="/src/main.ts"></script>
+```
