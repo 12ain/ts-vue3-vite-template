@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import vitePluginImp from "vite-plugin-imp";
+import legacy from "@vitejs/plugin-legacy";
 
 export default defineConfig({
   base: "./",
@@ -58,6 +59,9 @@ export default defineConfig({
         //   },
         // },
       ],
+    }),
+    legacy({
+      targets: ["defaults", "not IE 11"],
     }),
   ],
 });
