@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
-import { ref, toRefs } from "vue";
+import { ref, toRefs, defineComponent } from "vue";
 
 import ACount from "@/components/Count.vue";
 
-export default {
+export default defineComponent({
   setup() {
     interface Person {
       name: string;
@@ -24,5 +24,5 @@ export default {
     return { counts, ...toRefs(obj) };
   },
   components: { ACount },
-};
+});
 </script>
